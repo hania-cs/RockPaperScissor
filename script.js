@@ -1,3 +1,7 @@
+const rockBtn = document.getElementById("rock-btn")
+const paperBtn = document.getElementById("paper-btn")
+const scissorBtn = document.getElementById("scissor-btn")
+
 function getComputersChoice(){
     let options = ["rock", "paper", "scissor"]
     let computersInput = Math.floor(Math.random()*3)
@@ -48,10 +52,10 @@ function playRound(userInput, computerInput){
 
 
 function playGame(){
-    for(let i = 0; i < 5; i++){
+   
         let userInp = prompt("Enter your choice: Rock/Paper/Scissor: ").toLowerCase()
         console.log(playRound(userInp, computerInput))
-    }
+
     if(userScore > computerScore){
         return 'YOU WIN'
     }
