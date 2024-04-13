@@ -37,31 +37,31 @@ function playRound(userInput, computerInput=getComputersChoice()){
     else if(userInput === "rock"){
         if(computerInput === "paper"){
             computerScore++
-            resultCont.textContent= "you lose! paper beats rock"
+            resultCont.textContent= "ouch! paper beats rock"
         }
         else if(computerInput === "scissor"){
             userScore++
-            resultCont.textContent= "You win! rock beats scissor"
+            resultCont.textContent= "yay! rock beats scissor"
         }
     }
     else if(userInput === "paper"){
         if(computerInput === "rock"){
             userScore++
-            resultCont.textContent= "You win! paper beats rock"
+            resultCont.textContent= "yay! paper beats rock"
         }
         else if(computerInput==="scissor"){
             computerScore++
-            resultCont.textContent= "You lose! scissor beats paper"
+            resultCont.textContent= "ouch! scissor beats paper"
         }
     }
     else if(userInput === "scissor"){
         if(computerInput === "rock"){
             computerScore++
-            resultCont.textContent= "You lose! rock beats scissors"
+            resultCont.textContent= "ouch! rock beats scissors"
         }
         else if(computerInput === "paper"){
             userScore++
-            resultCont.textContent= "You win! scissor beats paper"
+            resultCont.textContent= "yay! scissor beats paper"
         }
 
     }roundsPlayed++
@@ -71,18 +71,16 @@ function playRound(userInput, computerInput=getComputersChoice()){
 
 }
 
-function finalScore(){
-    
-    if(userScore>computerScore){
-        resultCont.textContent="YOU WIN🎉"
+function finalScore() {
+    if (userScore > computerScore) {
+        resultCont.textContent = "YOU WIN 🎉";
+    } else if (userScore < computerScore) {
+        resultCont.textContent = "Hard luck 😭";
+    } else {
+        resultCont.textContent = "It's a tie 🤭";
     }
-    else if(userScore<computerScore){
-        resultCont.textContent="Hard luck😭"
-    }
-    else{
-        resultCont.textContent="It's a tie🤭"
-    }
-    userScore = 0;
+
+    userScore = 0; 
     computerScore = 0;
-    roundsPlayed = 0;
+    roundsPlayed = 0; 
 }
