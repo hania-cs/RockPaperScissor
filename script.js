@@ -1,66 +1,67 @@
 const rockBtn = document.getElementById("rock-btn")
 const paperBtn = document.getElementById("paper-btn")
 const scissorBtn = document.getElementById("scissor-btn")
+const resultCont = document.getElementById("results-container")
 
+let userChoice=""
+let userScore = 0
+let computerScore = 0
+
+
+rockBtn.addEventListener("click", function(){
+    userChoice="rock"
+    playRound(userChoice, getComputersChoice())
+   
+})
+paperBtn.addEventListener("click", function(){
+    userChoice="paper"
+
+    playRound(userChoice, getComputersChoice())
+})
+scissorBtn.addEventListener("click", function(){
+    userChoice="scissor"
+    playRound(userChoice, getComputersChoice())
+})
 function getComputersChoice(){
     let options = ["rock", "paper", "scissor"]
     let computersInput = Math.floor(Math.random()*3)
     let compChoice = options[computersInput]
     return compChoice
 }
-let userScore = 0
-let computerScore = 0
-let computerInput = getComputersChoice()
 
-function playRound(userInput, computerInput){
+function playRound(userInput, computerInput=getComputersChoice()){
     if(userInput === computerInput){
-        return "It's a tie!"
+        resultCont.textContent="Its a tie!"
     }
-    
     else if(userInput === "rock"){
         if(computerInput === "paper"){
             computerScore++
-            return "You lose! Paper beats rock"
+            resultCont.textContent= "you lose! paper beats rock"
         }
         else if(computerInput === "scissor"){
             userScore++
-            return "You win! rock beats scissor"
+            resultCont.textContent= "You win! rock beats scissor"
         }
     }
     else if(userInput === "paper"){
         if(computerInput === "rock"){
             userScore++
-            return "You win! paper beats rock"
+            resultCont.textContent= "You win! paper beats rock"
         }
         else if(computerInput==="scissor"){
             computerScore++
-            return "You lose! scissor beats paper"
+            resultCont.textContent= "You lose! scissor beats paper"
         }
     }
     else if(userInput === "scissor"){
         if(computerInput === "rock"){
             computerScore++
-            return "You lose! rock beats scissors"
+            resultCont.textContent= "You lose! rock beats scissors"
         }
         else if(computerInput === "paper"){
             userScore++
-            return "You win! scissor beats paper"
+            resultCont.textContent= "You win! scissor beats paper"
         }
     }
     
 }
-
-
-function playGame(){
-   
-        let userInp = prompt("Enter your choice: Rock/Paper/Scissor: ").toLowerCase()
-        console.log(playRound(userInp, computerInput))
-
-    if(userScore > computerScore){
-        return 'YOU WIN'
-    }
-    else{
-        return "YOU LOSE"
-    }
-}
-console.log(playGame())
