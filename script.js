@@ -6,7 +6,7 @@ const resultCont = document.getElementById("results-container")
 let userChoice=""
 let userScore = 0
 let computerScore = 0
-
+let roundsPlayed=0
 
 rockBtn.addEventListener("click", function(){
     userChoice="rock"
@@ -63,6 +63,26 @@ function playRound(userInput, computerInput=getComputersChoice()){
             userScore++
             resultCont.textContent= "You win! scissor beats paper"
         }
+
+    }roundsPlayed++
+    if(roundsPlayed===5){
+        finalScore()
     }
 
+}
+
+function finalScore(){
+    
+    if(userScore>computerScore){
+        resultCont.textContent="YOU WIN🎉"
+    }
+    else if(userScore<computerScore){
+        resultCont.textContent="Hard luck😭"
+    }
+    else{
+        resultCont.textContent="It's a tie🤭"
+    }
+    userScore = 0;
+    computerScore = 0;
+    roundsPlayed = 0;
 }
