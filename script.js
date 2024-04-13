@@ -30,6 +30,7 @@ function getComputersChoice(){
 }
 
 function playRound(userInput, computerInput=getComputersChoice()){
+   
     if(userInput === computerInput){
         resultCont.textContent="Its a tie!"
     }
@@ -63,5 +64,5 @@ function playRound(userInput, computerInput=getComputersChoice()){
             resultCont.textContent= "You win! scissor beats paper"
         }
     }
-    
+
 }
